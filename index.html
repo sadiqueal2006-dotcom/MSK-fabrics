@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSK Fabrics - Exclusive Mens Combos and Bundles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 pb-24">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-indigo-100 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold tracking-tight text-indigo-950">MSK FABRICS</h1>
+                <p class="text-xs text-indigo-600 font-medium">DIRECT FACTORY OUTLETS</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="toggleCart()" class="relative bg-indigo-900 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-indigo-800 transition">
+                    🛒 Cart (<span id="cart-count">0</span>)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-6">
+        <!-- Hero Banner -->
+        <div class="mb-6 bg-indigo-50 border border-indigo-200 rounded-2xl p-5 text-center shadow-sm">
+            <h2 class="text-indigo-950 font-bold text-base">Low Price Best Quality</h2>
+            <p class="text-xs text-indigo-700 mt-1 font-medium">Exclusive Mens Combos and Bundles • Sizes 38 to 44 Available</p>
+        </div>
+
+        <!-- Pincode & COD Checker -->
+        <div class="mb-6 bg-white border border-indigo-100 rounded-2xl p-4 shadow-sm">
+            <label class="block text-xs font-bold text-slate-700 mb-2">Check Delivery & COD Availability:</label>
+            <div class="flex gap-2">
+                <input type="text" id="pincode-input" placeholder="Enter 6-digit Pincode" maxlength="6" class="flex-1 border border-slate-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-indigo-900">
+                <button onclick="checkPincode()" class="bg-indigo-900 text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-indigo-800 transition">Check</button>
+            </div>
+            <p id="pincode-result" class="text-xs mt-2 font-medium hidden"></p>
+        </div>
+
+        <!-- Products Section Heading -->
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-lg text-indigo-950">Exclusive Mens Combos and Bundles</h3>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="product-list">
+            <!-- Products will be dynamically loaded here -->
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="mt-10 grid grid-cols-3 gap-4 text-center border-t border-b border-indigo-100 py-6">
+            <div>
+                <div class="text-2xl mb-1">🌿</div>
+                <h4 class="text-xs font-bold text-slate-800">100% Pure Cotton</h4>
+                <p class="text-[10px] text-slate-500">Premium quality fabric</p>
+            </div>
+            <div>
+                <div class="text-2xl mb-1">💸</div>
+                <h4 class="text-xs font-bold text-slate-800">Cash on Delivery</h4>
+                <p class="text-[10px] text-slate-500">Safe & secure payment</p>
+            </div>
+            <div>
+                <div class="text-2xl mb-1">🚚</div>
+                <h4 class="text-xs font-bold text-slate-800">Pan-India Delivery</h4>
+                <p class="text-[10px] text-slate-500">Fast shipping</p>
+            </div>
+        </div>
+
+        <!-- Customer Reviews Section -->
+        <div class="mt-10">
+            <h3 class="font-bold text-base text-indigo-950 mb-4">⭐ Customer Reviews</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white border border-indigo-100 p-4 rounded-xl shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-sm">Karthik R.</span>
+                        <span class="text-amber-500 text-xs">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2">"Super quality shirts at this price! Received the plain shirts bundle within 3 days. Highly recommended."</p>
+                </div>
+                <div class="bg-white border border-indigo-100 p-4 rounded-xl shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-sm">Prabhu M.</span>
+                        <span class="text-amber-500 text-xs">★★★★★</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2">"Amazing checked shirts combo. Perfect fitting (Size 42) and great stitching. Will buy again!"</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer with Secure Admin Link -->
+    <footer class="max-w-4xl mx-auto px-4 py-8 text-center border-t border-indigo-100 mt-12 text-xs text-slate-500">
+        <p>© 2026 MSK Fabrics. Low Price Best Quality.</p>
+        <p class="mt-2"><button onclick="openAdminLogin()" class="text-indigo-400 hover:text-indigo-900 underline">Admin Login</button></p>
+    </footer>
+
+    <!-- Floating WhatsApp Share Button -->
+    <a href="https://api.whatsapp.com/send?text=Check%20out%20MSK%20Fabrics%20Exclusive%20Mens%20Combos%20and%20Bundles%20at%20best%20prices:%20https://example.com" target="_blank" class="fixed bottom-6 right-6 bg-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-emerald-500 transition z-40 text-xl" title="Share on WhatsApp">
+        💬
+    </a>
+
+    <!-- Cart Drawer Modal -->
+    <div id="cart-drawer" class="fixed inset-0 bg-black/50 z-50 hidden flex justify-end">
+        <div class="bg-white w-full max-w-md h-full p-6 flex flex-col justify-between shadow-2xl">
+            <div>
+                <div class="flex justify-between items-center border-b pb-4">
+                    <h2 class="font-bold text-lg text-indigo-950">Your Cart</h2>
+                    <button onclick="toggleCart()" class="text-slate-400 hover:text-slate-600 font-bold">✕</button>
+                </div>
+                <div id="cart-items" class="mt-4 space-y-4 max-h-[60vh] overflow-y-auto">
+                    <!-- Cart items injected here -->
+                </div>
+            </div>
+            <div class="border-t pt-4">
+                <div class="flex justify-between font-bold text-base mb-4">
+                    <span>Total:</span>
+                    <span id="cart-total">₹0</span>
+                </div>
+                <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-sm hover:bg-emerald-500 transition text-center block">
+                    Order via WhatsApp 💬
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin PIN Modal -->
+    <div id="admin-login-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-sm p-6 rounded-2xl shadow-xl">
+            <h3 class="font-bold text-base text-indigo-950 mb-3">Admin Login</h3>
+            <p class="text-xs text-slate-500 mb-4">Enter secret PIN to access Admin Dashboard.</p>
+            <input type="password" id="admin-pin-input" placeholder="Enter PIN (1234)" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm mb-4 focus:outline-none focus:border-indigo-900">
+            <div class="flex gap-2">
+                <button onclick="verifyAdminPin()" class="flex-1 bg-indigo-900 text-white py-2 rounded-xl text-xs font-bold hover:bg-indigo-800">Login</button>
+                <button onclick="closeAdminLogin()" class="flex-1 bg-slate-200 text-slate-800 py-2 rounded-xl text-xs font-bold hover:bg-slate-300">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="admin-panel-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-2xl h-[85vh] p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center border-b pb-4">
+                    <h2 class="font-bold text-lg text-indigo-950">Product Admin Dashboard</h2>
+                    <button onclick="closeAdminPanel()" class="text-slate-400 hover:text-slate-600 font-bold">✕</button>
+                </div>
+                
+                <!-- Add Product Form -->
+                <div class="mt-4 bg-indigo-50/50 p-4 rounded-xl border border-indigo-100">
+                    <h4 class="font-bold text-xs uppercase text-indigo-900 mb-3" id="form-title">Add New Product / Bundle</h4>
+                    <input type="hidden" id="edit-index" value="">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+                        <input type="text" id="prod-name" placeholder="Product Name (e.g., Plain Shirts)" class="border border-slate-300 rounded-lg px-3 py-1.5 text-xs">
+                        <input type="number" id="prod-price" placeholder="Price (e.g., 499)" class="border border-slate-300 rounded-lg px-3 py-1.5 text-xs">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+                        <input type="number" id="prod-original-price" placeholder="Original Price (e.g., 1299)" class="border border-slate-300 rounded-lg px-3 py-1.5 text-xs">
+                        <input type="text" id="prod-badge" placeholder="Badge (e.g., 5 Pcs)" class="border border-slate-300 rounded-lg px-3 py-1.5 text-xs">
+                    </div>
+                    <div class="mb-3">
+                        <label class="block text-[11px] font-semibold text-slate-600 mb-1">Upload Product Image (JPG/PNG):</label>
+                        <input type="file" id="prod-image-file" accept=".jpg,.jpeg,.png" class="w-full border border-slate-300 rounded-lg px-3 py-1 text-xs bg-white">
+                    </div>
+                    <button onclick="saveProduct()" class="bg-indigo-900 text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-indigo-800">Save Product</button>
+                </div>
+
+                <!-- Product List Table -->
+                <div class="mt-4 max-h-[30vh] overflow-y-auto">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="border-b bg-indigo-50 text-indigo-950">
+                                <th class="p-2">Image</th>
+                                <th class="p-2">Name</th>
+                                <th class="p-2">Price</th>
+                                <th class="p-2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-product-table">
+                            <!-- Admin items injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="border-t pt-3 text-right">
+                <button onclick="closeAdminPanel()" class="bg-slate-200 text-slate-800 px-4 py-2 rounded-xl text-xs font-bold">Close Panel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Default Products
+        let defaultProducts = [
+            { name: 'Plain Shirts (5 Pcs)', price: 499, originalPrice: 1299, badge: '5 Pcs', image: '', desc: 'Low Price Best Quality cotton plain shirts', category: 'plain' },
+            { name: 'Checked Shirts (5 Pcs)', price: 499, originalPrice: 1299, badge: '5 Pcs', image: '', desc: 'Low Price Best Quality checked design', category: 'checked' },
+            { name: 'White Shirts (2 Pcs)', price: 399, originalPrice: 899, badge: '2 Pcs', image: '', desc: 'Low Price Best Quality formal white shirts', category: 'white' }
+        ];
+
+        let products = JSON.parse(localStorage.getItem('msk_products')) || defaultProducts;
+        let selectedSizes = {};
+        let cart = [];
+
+        // Initialize size selections
+        products.forEach((p, idx) => { selectedSizes[idx] = '38'; });
+
+        function renderStore() {
+            const listContainer = document.getElementById('product-list');
+            listContainer.innerHTML = '';
+
+            products.forEach((p, index) => {
+                if(!selectedSizes[index]) selectedSizes[index] = '38';
+                
+                let imgContent = p.image ? `<img src="${p.image}" class="w-full h-48 object-cover rounded-xl">` : `<div class="bg-indigo-50/50 rounded-xl h-48 flex items-center justify-center text-4xl">👕</div>`;
+
+                listContainer.innerHTML += `
+                    <div class="bg-white border border-indigo-100 rounded-2xl p-4 shadow-sm flex flex-col justify-between">
+                        <div>
+                            ${imgContent}
+                            <div class="flex justify-between items-center mt-3">
+                                <span class="bg-indigo-100 text-indigo-900 text-[10px] font-semibold px-2 py-0.5 rounded">${p.badge}</span>
+                            </div>
+                            <h3 class="font-bold text-base mt-1.5 text-slate-900">${p.name}</h3>
+                            <p class="text-slate-500 text-xs mt-0.5">${p.desc || 'Low Price Best Quality'}</p>
+                            <div class="mt-3">
+                                <label class="text-[11px] font-semibold text-slate-700">Select Size:</label>
+                                <div class="flex gap-1.5 mt-1" id="size-btns-${index}">
+                                    <button onclick="selectSize(${index}, '38', this)" class="size-btn-${index} px-2.5 py-1 text-xs border rounded-lg font-medium ${selectedSizes[index]==='38'?'bg-indigo-900 text-white border-indigo-900':'border-slate-300'}">38</button>
+                                    <button onclick="selectSize(${index}, '40', this)" class="size-btn-${index} px-2.5 py-1 text-xs border rounded-lg font-medium ${selectedSizes[index]==='40'?'bg-indigo-900 text-white border-indigo-900':'border-slate-300'}">40</button>
+                                    <button onclick="selectSize(${index}, '42', this)" class="size-btn-${index} px-2.5 py-1 text-xs border rounded-lg font-medium ${selectedSizes[index]==='42'?'bg-indigo-900 text-white border-indigo-900':'border-slate-300'}">42</button>
+                                    <button onclick="selectSize(${index}, '44', this)" class="size-btn-${index} px-2.5 py-1 text-xs border rounded-lg font-medium ${selectedSizes[index]==='44'?'bg-indigo-900 text-white border-indigo-900':'border-slate-300'}">44</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 flex items-center justify-between">
+                            <div>
+                                <span class="text-lg font-bold text-slate-900">₹${p.price}</span>
+                                <span class="text-xs text-slate-400 line-through ml-1">₹${p.originalPrice}</span>
+                            </div>
+                            <button onclick="addToCart(${index})" class="bg-indigo-900 text-white px-3 py-2 rounded-xl text-xs font-bold hover:bg-indigo-800 transition">Add Bundle</button>
+                        </div>
+                    </div>
+                `;
+            });
+            renderAdminTable();
+        }
+
+        function selectSize(prodIndex, size, btn) {
+            selectedSizes[prodIndex] = size;
+            document.querySelectorAll(`.size-btn-${prodIndex}`).forEach(b => {
+                b.classList.remove('bg-indigo-900', 'text-white', 'border-indigo-900');
+                b.classList.add('border-slate-300');
+            });
+            btn.classList.add('bg-indigo-900', 'text-white', 'border-indigo-900');
+            btn.classList.remove('border-slate-300');
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('hidden');
+        }
+
+        function addToCart(index) {
+            const p = products[index];
+            const size = selectedSizes[index] || '38';
+            const itemKey = `${p.name} (Size: ${size})`;
+            const existing = cart.find(i => i.key === itemKey);
+            if(existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ key: itemKey, name: p.name, size: size, price: p.price, qty: 1 });
+            }
+            updateCartUI();
+            toggleCart();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items');
+            const countBadge = document.getElementById('cart-count');
+            const totalElement = document.getElementById('cart-total');
+            
+            container.innerHTML = '';
+            let total = 0;
+            let totalCount = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price * item.qty;
+                totalCount += item.qty;
+                container.innerHTML += `
+                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-xl">
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">${item.name}</h4>
+                            <p class="text-xs text-slate-500">Size: ${item.size} | ₹${item.price}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm font-bold">Qty: ${item.qty}</span>
+                            <button onclick="removeItem(${index})" class="text-red-500 text-xs font-bold px-2 py-1">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            countBadge.innerText = totalCount;
+            totalElement.innerText = `₹${total}`;
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function checkoutWhatsApp() {
+            if(cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            let message = "Hi MSK Fabrics, I want to order:
+
+";
+            let total = 0;
+            cart.forEach(item => {
+                message += `- ${item.name} [Size: ${item.size}] x ${item.qty} = ₹${item.price * item.qty}
+`;
+                total += item.price * item.qty;
+            });
+            message += `
+Total Amount: ₹${total}
+
+Please confirm my order.`;
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/919042068784?text=${encoded}`, '_blank');
+        }
+
+        function checkPincode() {
+            const pin = document.getElementById('pincode-input').value.trim();
+            const res = document.getElementById('pincode-result');
+            res.classList.remove('hidden');
+            if(pin.length === 6) {
+                res.className = "text-xs mt-2 font-bold text-emerald-600";
+                res.innerText = "✓ Free Delivery & Cash on Delivery (COD) available for Pincode " + pin + "!";
+            } else {
+                res.className = "text-xs mt-2 font-bold text-red-600";
+                res.innerText = "Please enter a valid 6-digit Pincode.";
+            }
+        }
+
+        // Admin Security & Panel
+        function openAdminLogin() {
+            document.getElementById('admin-login-modal').classList.remove('hidden');
+        }
+        function closeAdminLogin() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+            document.getElementById('admin-pin-input').value = '';
+        }
+        function verifyAdminPin() {
+            const pin = document.getElementById('admin-pin-input').value;
+            if(pin === '1234') {
+                closeAdminLogin();
+                document.getElementById('admin-panel-modal').classList.remove('hidden');
+            } else {
+                alert('Incorrect PIN! Try 1234');
+            }
+        }
+        function closeAdminPanel() {
+            document.getElementById('admin-panel-modal').classList.add('hidden');
+            resetForm();
+        }
+
+        function renderAdminTable() {
+            const tbody = document.getElementById('admin-product-table');
+            tbody.innerHTML = '';
+            products.forEach((p, idx) => {
+                tbody.innerHTML += `
+                    <tr class="border-b">
+                        <td class="p-2"><img src="${p.image || 'https://via.placeholder.com/40'}" class="w-8 h-8 object-cover rounded"></td>
+                        <td class="p-2 font-medium text-slate-900">${p.name}</td>
+                        <td class="p-2">₹${p.price}</td>
+                        <td class="p-2 flex gap-2">
+                            <button onclick="editProduct(${idx})" class="text-indigo-600 font-bold">Edit</button>
+                            <button onclick="deleteProduct(${idx})" class="text-red-600 font-bold">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function saveProduct() {
+            const name = document.getElementById('prod-name').value;
+            const price = parseFloat(document.getElementById('prod-price').value) || 0;
+            const originalPrice = parseFloat(document.getElementById('prod-original-price').value) || 999;
+            const badge = document.getElementById('prod-badge').value || 'Bundle';
+            const editIdx = document.getElementById('edit-index').value;
+            const fileInput = document.getElementById('prod-image-file');
+
+            if(!name || !price) {
+                alert('Please enter product name and price.');
+                return;
+            }
+
+            const proceedSave = (imgData) => {
+                const productData = {
+                    name, price, originalPrice, badge,
+                    image: imgData || (editIdx !== "" ? products[editIdx].image : ''),
+                    desc: 'Low Price Best Quality combo'
+                };
+
+                if(editIdx !== "") {
+                    products[editIdx] = productData;
+                } else {
+                    products.push(productData);
+                }
+
+                localStorage.setItem('msk_products', JSON.stringify(products));
+                renderStore();
+                resetForm();
+                alert('Product saved successfully!');
+            };
+
+            if(fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    proceedSave(e.target.result);
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                proceedSave(null);
+            }
+        }
+
+        function editProduct(idx) {
+            const p = products[idx];
+            document.getElementById('edit-index').value = idx;
+            document.getElementById('prod-name').value = p.name;
+            document.getElementById('prod-price').value = p.price;
+            document.getElementById('prod-original-price').value = p.originalPrice;
+            document.getElementById('prod-badge').value = p.badge;
+            document.getElementById('form-title').innerText = "Edit Product";
+        }
+
+        function deleteProduct(idx) {
+            if(confirm('Are you sure you want to delete this product?')) {
+                products.splice(idx, 1);
+                localStorage.setItem('msk_products', JSON.stringify(products));
+                renderStore();
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('edit-index').value = "";
+            document.getElementById('prod-name').value = "";
+            document.getElementById('prod-price').value = "";
+            document.getElementById('prod-original-price').value = "";
+            document.getElementById('prod-badge').value = "";
+            document.getElementById('prod-image-file').value = "";
+            document.getElementById('form-title').innerText = "Add New Product / Bundle";
+        }
+
+        // Initial Load
+        renderStore();
+    </script>
+</body>
+</html>
