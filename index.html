@@ -319,19 +319,13 @@
                 alert('Your cart is empty!');
                 return;
             }
-            let message = "Hi MSK Fabrics, I want to order:
-
-";
+            let message = "Hi MSK Fabrics, I want to order:\n\n";
             let total = 0;
             cart.forEach(item => {
-                message += `- ${item.name} [Size: ${item.size}] x ${item.qty} = ₹${item.price * item.qty}
-`;
+                message += `- ${item.name} [Size: ${item.size}] x ${item.qty} = ₹${item.price * item.qty}\n`;
                 total += item.price * item.qty;
             });
-            message += `
-Total Amount: ₹${total}
-
-Please confirm my order.`;
+            message += `\nTotal Amount: ₹${total}\n\nPlease confirm my order.`;
             const encoded = encodeURIComponent(message);
             window.open(`https://wa.me/919042068784?text=${encoded}`, '_blank');
         }
@@ -390,7 +384,7 @@ Please confirm my order.`;
         }
 
         function saveProduct() {
-            const name = document.getElementById('prod-name').value;
+            const name = document.getElementById('prod-name'.value);
             const price = parseFloat(document.getElementById('prod-price').value) || 0;
             const originalPrice = parseFloat(document.getElementById('prod-original-price').value) || 999;
             const badge = document.getElementById('prod-badge').value || 'Bundle';
